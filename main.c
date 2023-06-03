@@ -17,6 +17,8 @@ Processus *parse_file(const char* filename, int *algorithm) {
         exit(1);
     }
 
+    // younes
+
     char buffer[256];
     char *ptr = NULL;
     int nb_processus;
