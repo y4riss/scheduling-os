@@ -9,7 +9,7 @@ typedef struct {
 } Processus;
 
 
-Processus *parse_file(const char* filename, int *algorithm) {
+Processus *parse_file(const char* filename) {
 
     FILE* file = fopen(filename, "r");
     if (file == NULL) {
@@ -61,8 +61,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    int algorithm;
-    Processus* processus = parse_file(argv[1], &algorithm);
+
+    Processus* processus = parse_file(argv[1]);
 
     while (processus->date_arrivee != -1)
     {
