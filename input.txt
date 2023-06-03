@@ -1,0 +1,19 @@
+# Exemple de fichier de configuration
+             #test commentaire
+
+5
+# Processus 1
+ProcessusA       0     5 #haha
+
+# Processus 2
+ProcessusB 1 8
+
+# Processus 3
+ProcessusC 2 3
+
+# Processus 4
+ProcessusD 3 6
+
+# Commentaire
+# Processus 5
+ProcessusE 4 4
