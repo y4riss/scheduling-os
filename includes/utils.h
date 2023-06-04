@@ -13,6 +13,8 @@ typedef struct {
 } Processus;
 
 Processus *parse_file(const char* filename);
+typedef void (*algorithm_functions)(void);
+
 void fcfs();
 void round_robin();
 void sjf();

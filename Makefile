@@ -1,5 +1,6 @@
 SRC = src/main.c \
 		src/helpers/*.c \
+		src/functions/*.c
 
 TARGET = scheduling
 INCLUDES = includes
