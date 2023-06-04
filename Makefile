@@ -1,5 +1,5 @@
 SRC = src/main.c \
-		src/helpers/parse.c
+		src/helpers/*.c \
 
 TARGET = scheduling
 INCLUDES = includes

@@ -1,5 +1,10 @@
-#ifndef PROCESS_H
-#define PROCESS_H
+#ifndef UTILS_H
+#define UTILS_H
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <dirent.h>
 
 typedef struct {
     char nom[50];
@@ -8,5 +13,6 @@ typedef struct {
 } Processus;
 
 Processus *parse_file(const char* filename);
+void menu();
 
 #endif
