@@ -1,12 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef struct {
-    char nom[50];
-    int date_arrivee;
-    int duree_cycle;
-} Processus;
+#include "process.h"
 
 
 Processus *parse_file(const char* filename) {
@@ -16,8 +11,6 @@ Processus *parse_file(const char* filename) {
         fprintf(stderr,"Impossible d'ouvrir le fichier de configuration.\n");
         exit(1);
     }
-
-    // younes
 
     char buffer[256];
     char *ptr = NULL;
@@ -60,7 +53,6 @@ int main(int argc, char* argv[]) {
         fprintf(stderr,"Utilisation : %s nom_fichier",argv[0]);
         return 1;
     }
-
 
     Processus* processus = parse_file(argv[1]);
 
