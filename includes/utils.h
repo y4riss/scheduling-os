@@ -13,6 +13,9 @@ typedef struct {
 } Processus;
 
 Processus *parse_file(const char* filename);
+void fcfs();
+void round_robin();
+void sjf();
 void menu();
 
 #endif

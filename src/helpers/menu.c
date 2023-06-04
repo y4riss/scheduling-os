@@ -20,7 +20,8 @@ void menu() {
 
     if ((pDirent->d_type == DT_REG))
     {
-            printf("\t%d - %s\n", i, pDirent->d_name);
+            char *algorithm = strtok(pDirent->d_name,".");
+            printf("\t%d - %s\n", i, algorithm);
             i++;
     }}
 
