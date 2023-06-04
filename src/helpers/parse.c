@@ -1,6 +1,7 @@
 #include "utils.h"
 
 
+
 Processus *parse_file(const char* filename) {
 
     FILE* file = fopen(filename, "r");
@@ -11,7 +12,7 @@ Processus *parse_file(const char* filename) {
 
     char buffer[256];
     char *ptr = NULL;
-    int nb_processus;
+    
     int line = -1;
     Processus *processus = NULL; // tableau de process
 

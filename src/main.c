@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     menu(functions);
     printf("choose : ");
     scanf("%d",&choice);
-    functions[choice]();
+    functions[choice](processus);
 
     free(processus);
 

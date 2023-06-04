@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <dirent.h>
 
+int nb_processus;
+
 typedef struct {
     char nom[50];
     int date_arrivee;
@@ -13,9 +15,9 @@ typedef struct {
 } Processus;
 
 Processus *parse_file(const char* filename);
-typedef void (*algorithm_functions)(void);
+typedef void (*algorithm_functions)(Processus*);
 
-void fcfs();
+void fcfs(Processus*);
 void round_robin();
 void sjf();
 void menu();
