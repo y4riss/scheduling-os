@@ -7,5 +7,6 @@ typedef struct {
     int duree_cycle;
 } Processus;
 
+Processus *parse_file(const char* filename);
 
 #endif

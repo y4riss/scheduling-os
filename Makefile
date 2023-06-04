@@ -1,4 +1,6 @@
-SRC = src/main.c
+SRC = src/main.c \
+		src/helpers/parse.c
+
 TARGET = scheduling
 INCLUDES = includes
 CFLAGS = -Wall -Wextra -Werror
