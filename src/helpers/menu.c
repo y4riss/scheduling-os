@@ -2,11 +2,11 @@
 
 void menu() {
     
-    struct dirent *pDirent;
+    struct dirent *pDirent; // directory entry structure
     char parent_dir[254];
     DIR *pDir;
 
-    getcwd(parent_dir, sizeof(parent_dir));
+    getcwd(parent_dir, sizeof(parent_dir)); //get parent directory (scheduling-os)
     char *path = strcat(parent_dir,"/src/functions");
     pDir = opendir(path);
     if (pDir == NULL) {
@@ -18,7 +18,7 @@ void menu() {
     int i = 1;
     while ((pDirent = readdir(pDir)) != NULL) {
 
-    if ((strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0 ) )
+    if ((pDirent->d_type == DT_REG))
     {
             printf("\t%d - %s\n", i, pDirent->d_name);
             i++;
