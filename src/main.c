@@ -13,6 +13,14 @@ int main(int argc, char* argv[]) {
     int choice;
     algorithm_functions functions[5];
     
+    // printf("before sorting...\n");
+    // dump(processus);
+
+    // sort_process(processus);
+
+    // printf("after sorting...\n");
+    // dump(processus);
+    
     menu(functions);
     printf("choose : ");
     scanf("%d",&choice);

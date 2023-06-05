@@ -22,5 +22,7 @@ void fcfs(Processus*);
 void round_robin();
 void sjf();
 void menu(algorithm_functions*);
+void dump(Processus *p);
+
 
 #endif

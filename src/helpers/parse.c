@@ -31,7 +31,6 @@ Processus *parse_file(const char* filename) {
             sscanf(ptr, "%d",&nb_processus);
             line++;
             processus = malloc(( nb_processus + 1) * sizeof(Processus));
-            processus[nb_processus].date_arrivee = -1;
             continue;
         }
 
@@ -39,8 +38,7 @@ Processus *parse_file(const char* filename) {
         sscanf(ptr, "%s %d %d", p.nom, &p.date_arrivee, &p.duree_cycle);
         processus[line++] = p;
     }
-
-
+    processus[line].date_arrivee = -1;
     fclose(file);
     return processus;
 }

@@ -69,20 +69,23 @@ void fcfs(Processus* processus)
             temps_att[i] += processus[j].duree_cycle;
     }
  
-    printf("\nProcessus\tTemps de traitement\tTemps d'attente \t Temps de rotation\n");
+    printf("\nProcessus \t|Temps d'attente \t |Temps de rotation\n");
+    for(i = 0; i < 30; i++) printf("--");
 
     for(i=0; i<nb_processus; i++)
     {
         temps_rot[i] = processus[i].duree_cycle+temps_att[i];
         avtemps_att += temps_att[i];
         avtemps_rot += temps_rot[i];
-        printf("\n%s\t\t%d\t\t\t%d\t\t%d",processus[i].nom,processus[i].duree_cycle,temps_att[i],temps_rot[i]);
+        printf("\n%s\t\t|%d\t\t\t |%d",processus[i].nom,temps_att[i],temps_rot[i]);
     }
  
     avtemps_att /=i;
     avtemps_rot /=i;
 
-    printf("\n\nMoyenne\t\t\tx\t\t\t%d\t\t%d\n",avtemps_att,avtemps_rot);
+    puts("");
+    for(i = 0; i < 30; i++) printf("--");
+    printf("\nMoyenne\t\t|%d\t\t\t |%d\n",avtemps_att,avtemps_rot);
     
     draw(processus, temps_att); 
     free(temps_att);
