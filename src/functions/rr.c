@@ -1,6 +1,7 @@
 #include "utils.h"
 
-void round_robin()
+void round_robin(Processus *p)
 {
-    printf("test from round_robin");
+        if (p)
+        printf("test from round_robin");
 }

@@ -2,7 +2,7 @@
 
 
 
-void sjf(Processus* processus)
+void sjf2(Processus* processus)
 {
     int *temps_att, *temps_rot, avtemps_att=0, avtemps_rot=0, i, j;
     
