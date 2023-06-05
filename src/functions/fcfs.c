@@ -7,6 +7,7 @@ void fcfs(Processus* processus)
     
     temps_att = malloc(sizeof(int) * nb_processus);
     temps_rot = malloc(sizeof(int) * nb_processus);
+    sort_process(processus);
 
     temps_att[0] =0;
 

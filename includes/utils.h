@@ -15,6 +15,7 @@ typedef struct {
 } Processus;
 
 Processus *parse_file(const char* filename);
+void sort_process(Processus *);
 typedef void (*algorithm_functions)(Processus*);
 
 void fcfs(Processus*);
