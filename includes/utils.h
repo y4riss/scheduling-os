@@ -21,6 +21,6 @@ typedef void (*algorithm_functions)(Processus*);
 void fcfs(Processus*);
 void round_robin();
 void sjf();
-void menu();
+void menu(algorithm_functions*);
 
 #endif
