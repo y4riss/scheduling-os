@@ -67,6 +67,7 @@ void fcfs(Processus* processus)
         temps_att[i] =0;
         for(j=0; j<i; j++)
             temps_att[i] += processus[j].duree_cycle;
+        temps_att[i] -= processus[i].date_arrivee;
     }
  
     printf("\nProcessus \t|Temps d'attente \t |Temps de rotation\n");

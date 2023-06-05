@@ -27,7 +27,7 @@ void sort_process(Processus *);
 typedef void (*algorithm_functions)(Processus*);
 
 void fcfs(Processus*);
-void round_robin();
+void round_robin(Processus*);
 void sjf(Processus*);
 void menu(algorithm_functions*);
 void dump(Processus *p);
