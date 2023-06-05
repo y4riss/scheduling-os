@@ -9,7 +9,7 @@
 int nb_processus;
 
 typedef struct {
-    char nom[50];
+    char nom[20];
     int date_arrivee;
     int duree_cycle;
 } Processus;
