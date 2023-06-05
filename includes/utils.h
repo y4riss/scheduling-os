@@ -14,13 +14,21 @@ typedef struct {
     int duree_cycle;
 } Processus;
 
+typedef struct {
+
+    int front;
+    int tail;
+    Processus processus[254];
+
+} ready_queue;
+
 Processus *parse_file(const char* filename);
 void sort_process(Processus *);
 typedef void (*algorithm_functions)(Processus*);
 
 void fcfs(Processus*);
 void round_robin();
-void sjf();
+void sjf(Processus*);
 void menu(algorithm_functions*);
 void dump(Processus *p);
 
