@@ -55,6 +55,7 @@ void sjf(Processus* processus)
     }
 
     puts("\n");
+    plot_diagram(processus_in_order); 
     free(temps_att);
     free(temps_rot);
 }

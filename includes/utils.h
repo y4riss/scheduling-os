@@ -25,6 +25,7 @@ typedef struct {
 Processus *parse_file(const char* filename);
 void sort_process(Processus *);
 typedef void (*algorithm_functions)(Processus*);
+void plot_diagram(Processus *processus);
 
 void fcfs(Processus*);
 void round_robin(Processus*);

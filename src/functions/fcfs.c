@@ -1,56 +1,6 @@
 #include "utils.h"
 
-void draw(Processus *processus,int *temps_att)
-{
-    int i;
-    int j;
-    int k;
-    int l;
-    int x;
 
-    x = 0;
-
-    printf("\n\n----------------------Diagram de Gantt----------------------\n\n");
-
-    //first lines
-    for(i = 0 ; i < 3 ; i++)
-    {   
-        char c;
-        l = 0;
-
-        if (i == 0) c = '^';
-        else c = '|';
-        puts("");
-        while (l++ <= 20) printf(" ");
-        printf(" %c",c);
-    }
-
-
-    for(i = 0 ; i < nb_processus; i++)
-    {
-        puts("");
-        l = strlen(processus[i].nom);
-        while (l++ <= 20 ) printf(" ");
-
-        printf("%s |",processus[i].nom);
-        for(j = 0 ; j < temps_att[i]; j++) printf(" ");
-        for(k = 0 ; k < processus[i].duree_cycle ; k++) printf("-");
-        x+= processus[i].duree_cycle;
-    }
-
-    // last lines
-    for(i = 0 ; i < 3 ; i++)
-    {   
-        l = 0;
-        puts("");
-        while (l++ <= 20) printf(" ");
-        if (i == 2) printf("  ");
-        else
-        printf(" |");
-    }
-    for(k = 0 ; k < x + 20 ; k++) printf("-");
-    printf(">\n\n");
-}
 
 void fcfs(Processus* processus)
 {
@@ -88,7 +38,7 @@ void fcfs(Processus* processus)
     for(i = 0; i < 30; i++) printf("--");
     printf("\nMoyenne\t\t|%d\t\t\t |%d\n",avtemps_att,avtemps_rot);
     
-    draw(processus, temps_att); 
+    plot_diagram(processus); 
     free(temps_att);
     free(temps_rot);
 }
