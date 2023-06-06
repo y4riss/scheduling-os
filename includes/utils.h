@@ -9,9 +9,14 @@
 int nb_processus;
 
 typedef struct {
+
     char nom[20];
     int date_arrivee;
     int duree_cycle;
+    int temps_datt;
+    int rot;
+    int finished;
+
 } Processus;
 
 typedef struct {
@@ -23,7 +28,7 @@ typedef struct {
 } ready_queue;
 
 Processus *parse_file(const char* filename);
-void sort_process(Processus *);
+void sort_by_date_arrivee(Processus *);
 typedef void (*algorithm_functions)(Processus*);
 void plot_diagram(Processus *processus);
 

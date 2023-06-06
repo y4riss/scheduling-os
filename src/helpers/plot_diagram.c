@@ -8,10 +8,8 @@ void plot_diagram(Processus *processus)
     int k;
     int l;
     int x;
-    int total_execution;
 
     x = 0;
-    total_execution = 0;
 
     printf("\n\n----------------------Diagram de Gantt----------------------\n\n");
 
@@ -36,10 +34,9 @@ void plot_diagram(Processus *processus)
         while (l++ <= 20 ) printf(" ");
 
         printf("%s |",processus[i].nom);
-        for(j = 0 ; j < total_execution;  j++) printf(" ");
+        for(j = 0 ; j < processus[i].temps_datt + processus[i].date_arrivee ;  j++) printf(" ");
         for(k = 0 ; k < processus[i].duree_cycle ; k++) printf("-");
         x+= processus[i].duree_cycle;
-        total_execution += processus[i].duree_cycle;
     }
 
     // last lines

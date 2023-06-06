@@ -14,7 +14,7 @@ void sjf(Processus* processus)
     int finished[256] = {0};
     Processus shortest;
 
-    sort_process(processus);
+    sort_by_date_arrivee(processus);
     puts("");
 
     temps_att[0] = 0;

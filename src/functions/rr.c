@@ -11,7 +11,7 @@ void round_robin(Processus *processus)
 //     printf("Entrez une valeur pour quantum : ");
 //     scanf("%i",&quantum);
 
-//     sort_process(processus);
+//     sort_by_date_arrivee(processus);
 
 
 //     for (int i = 0; i < nb_processus; ++i)
