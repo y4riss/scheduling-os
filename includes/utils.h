@@ -30,13 +30,16 @@ typedef struct {
 Processus *parse_file(const char* filename);
 void sort_by_date_arrivee(Processus *);
 typedef void (*algorithm_functions)(Processus*);
+
 void plot_diagram(Processus *processus);
+void print_table(Processus *processus, float avtemps_att, float avtemps_rot);
 
 void fcfs(Processus*);
 void round_robin(Processus*);
 void sjf(Processus*);
 void menu(algorithm_functions*);
 void dump(Processus *p);
+
 
 
 #endif
