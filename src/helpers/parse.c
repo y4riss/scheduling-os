@@ -12,12 +12,14 @@ Processus *parse_file(const char* filename) {
 
     char buffer[256];
     char *ptr = NULL;
+    nb_processus = 0;
     
-    int line = -1;
-    Processus *processus = NULL; // tableau de process
+    Processus *processus = malloc(256 * sizeof(Processus));// tableau de process
+    Processus p;
+
 
     // get line by line
-    while (fgets(buffer, sizeof(buffer), file)) {
+    while (fgets(buffer, sizeof(buffer), file) && nb_processus < 256) {
 
         // skip whitespaces
         ptr = buffer;
@@ -26,19 +28,12 @@ Processus *parse_file(const char* filename) {
             continue;
         }
 
-        if (line == -1)
-        {
-            sscanf(ptr, "%d",&nb_processus);
-            line++;
-            processus = malloc(( nb_processus + 1) * sizeof(Processus));
-            continue;
-        }
-
-        Processus p;
         sscanf(ptr, "%s %d %d", p.nom, &p.date_arrivee, &p.duree_cycle);
-        processus[line++] = p;
+        processus[nb_processus] = p;
+        nb_processus++;
     }
-    processus[line].date_arrivee = -1;
+    processus[nb_processus].date_arrivee = -1;
+    processus = realloc(processus, nb_processus * sizeof(Processus));
     fclose(file);
     return processus;
 }

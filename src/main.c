@@ -10,23 +10,22 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     Processus* processus = parse_file(argv[1]);
-    int choice;
-    algorithm_functions functions[5];
+    // int choice;
+    // algorithm_functions functions[5];
     
     // printf("before sorting...\n");
-    // dump(processus);
+    dump(processus);
 
     // sort_process(processus);
 
     // printf("after sorting...\n");
     // dump(processus);
     
-    menu(functions);
-    printf("choose : ");
-    scanf("%d",&choice);
-    functions[choice](processus);
+    // menu(functions);
+    // printf("choose : ");
+    // scanf("%d",&choice);
+    // functions[choice](processus);
 
     free(processus);
-
     return 0;
 }

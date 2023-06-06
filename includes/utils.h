@@ -18,7 +18,7 @@ typedef struct {
 
     int front;
     int tail;
-    Processus processus[254];
+    Processus processus[256];
 
 } ready_queue;
 

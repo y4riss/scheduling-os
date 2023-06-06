@@ -1,15 +1,9 @@
-# Exemple de fichier de configuration
-             #test commentaire
 
-4
-# Processus 1
-A 0 5
+# hello
+# test
 
-# Processus 2
-B 1 8
-
-# Processus 3
-C 2 1
-
-# Processus 4
-D 6 7
+p1 0 3
+p2 2 6
+p3 4 4
+p4 6 5
+p5 8 2

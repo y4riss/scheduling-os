@@ -10,8 +10,8 @@ void sjf(Processus* processus)
 
     temps_att = malloc(sizeof(int) * nb_processus);
     temps_rot = malloc(sizeof(int) * nb_processus);
-    Processus processus_in_order[254];
-    int finished[254] = {0};
+    Processus processus_in_order[256];
+    int finished[256] = {0};
     Processus shortest;
 
     sort_process(processus);

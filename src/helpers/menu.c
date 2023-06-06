@@ -4,7 +4,7 @@ void menu(algorithm_functions* functions) {
     
 
     struct dirent *pDirent; // directory entry structure
-    char parent_dir[254];
+    char parent_dir[256];
     DIR *pDir;
 
     getcwd(parent_dir, sizeof(parent_dir)); //get parent directory (scheduling-os)
