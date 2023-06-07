@@ -127,11 +127,9 @@ void plot(Processus *processus, int quantum)
     int j;
     int k;
     int l;
-    int x;
     int cycle;
     int condition;
 
-    x = 0;
 
     printf("\n\n----------------------Diagram de Gantt----------------------\n\n");
 

@@ -1,6 +1,6 @@
 #include "utils.h"
 
-void menu(algorithm_functions* functions) {
+void menu(algorithm_functions* functions, int *nb_of_functions) {
     
 
     struct dirent *pDirent; // directory entry structure
@@ -34,8 +34,9 @@ void menu(algorithm_functions* functions) {
             }
             printf("\t%d - %s\n", i, algorithm);
             i++;
+            
     }}
-
+    *nb_of_functions = i - 1;
     closedir(pDir);
     
 }

@@ -47,17 +47,28 @@ void sjf(Processus* processus)
 
 void sjf_preemptif(Processus *processus)
 {
-
+    dump(processus);
 }
 
 void sjf_choice(Processus *processus)
 {
-    int choice;
+    char choice;
 
-    printf("\t\t0 - non preemptif\n");
-    printf("\t\t1 - preemptif\n");
-    printf("Algorithm [sjf] > ");
-    scanf("%d",&choice);
-    if (choice == 0) sjf(processus);
+    printf("\t\t1 - non preemptif\n");
+    printf("\t\t2 - preemptif\n");
+   
+    while (1) {
+        printf("Algorithm[sjf] > ");
+        choice = getchar();
+        if (choice == '\n' || choice == '\r') continue;
+        while(getchar() != '\n'); // To consume the newline character
+
+        if (choice == '1' || choice == '2') {
+            break;
+        } else {
+            printf("Invalid input.\n");
+        }
+    }
+    if (choice == '1') sjf(processus);
     else sjf_preemptif(processus);
 }
