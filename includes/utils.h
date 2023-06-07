@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <dirent.h>
 
+#define MAX_QUANTUM 20
+#define min(a,b) (a<b?a:b)
 int nb_processus;
 
 typedef struct {
@@ -13,9 +15,11 @@ typedef struct {
     char nom[20];
     int date_arrivee;
     int duree_cycle;
-    int temps_datt;
-    int rot;
+    int temps_datt[256];
+    int rot[256];
+    int index;
     int finished;
+    int last_total_execution;
 
 } Processus;
 
@@ -23,7 +27,7 @@ typedef struct {
 
     int front;
     int tail;
-    Processus processus[256];
+    Processus processus[4096];
 
 } ready_queue;
 
@@ -35,7 +39,7 @@ void plot_diagram(Processus *processus);
 void print_table(Processus *processus, float avtemps_att, float avtemps_rot);
 
 void fcfs(Processus*);
-void round_robin(Processus*);
+void round_robin(Processus *processus);
 void sjf(Processus*);
 void menu(algorithm_functions*);
 void dump(Processus *p);
