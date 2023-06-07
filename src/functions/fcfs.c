@@ -40,6 +40,7 @@ void fcfs(Processus* processus)
     avtemps_att /= nb_processus;
     avtemps_rot /= nb_processus;
 
+    printf("Algorithme[FCFS] : First come first serve.\n");
     plot_diagram(processus); 
     print_table(processus, avtemps_att, avtemps_rot);
 }

@@ -182,6 +182,14 @@ void sjf_choice(Processus *processus)
             printf("Invalid input.\n");
         }
     }
-    if (choice == '1') sjf(processus);
-    else sjf_preemptif(processus);
+    if (choice == '1') 
+    {
+        printf("Algorithme[SJF] : Shortest job first non preemptif.\n");
+        sjf(processus);
+    }
+    else 
+    {
+        printf("Algorithme[SJF]: Shortest job first(sjf) preemptif.\n");
+        sjf_preemptif(processus);
+    }
 }

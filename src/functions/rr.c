@@ -1,7 +1,27 @@
 #include "utils.h"
 
 
+int validate_quantum()
+{
+    int valid_input;
+    int quantum;
 
+    valid_input = 0;
+
+    while (!valid_input) {
+    printf("Algorithm[RR]> Choisir un quantum (0 < q < 20) : ");
+    if (scanf("%d", &quantum) == 1) {
+        if (quantum >= 1 && quantum < 20) {
+            valid_input = 1;
+        } else {
+            printf("Invalid input.\n");
+        }
+    } else {
+        printf("Invalid input.\n");
+        while (getchar() != '\n');
+    }}
+    return quantum;
+}
 void round_robin(Processus *processus)
 {
     int     i;
@@ -18,12 +38,14 @@ void round_robin(Processus *processus)
     Processus tmp;
 
 
-    quantum = 3;
     avtemps_att = 0;
     avtemps_rot = 0;
     total_execution = 0;
     queue.front = 0;
     queue.tail = 0;
+
+    // choix du quantum
+    quantum = validate_quantum();
 
     //determine the first process to arrive
     tmp.date_arrivee = 0x7fffffff;
@@ -40,7 +62,6 @@ void round_robin(Processus *processus)
     queue.processus[queue.tail++] = k;
     p = &processus[k];
     p->queued = 1;
-    dump(processus);
     while (queue.tail != queue.front)
     {
 
@@ -101,7 +122,7 @@ void round_robin(Processus *processus)
         else
             p->duree_cycle = p->initial_duree_cycle;
     }
-
+    printf("Algorithme[RR] : Round Robin, quantum[Q] = %d.\n",quantum);
     plot_diagram_preemptif(processus, quantum);
 
     for(i = 0 ; i < nb_processus ; i++)

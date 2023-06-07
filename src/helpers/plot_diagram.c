@@ -11,7 +11,7 @@ void plot_diagram(Processus *processus)
 
     x = 0;
 
-    printf("\n\n----------------------Diagram de Gantt----------------------\n\n");
+    printf("\n\n\t\t------Diagramme de Gantt------\n\n");
 
     //first vertical lines
     for(i = 0 ; i < 3 ; i++)
@@ -22,7 +22,7 @@ void plot_diagram(Processus *processus)
         if (i == 0) c = '^';
         else c = '|';
         puts("");
-        while (l++ <= 20) printf(" ");
+        while (l++ <= SPACE) printf(" ");
         printf(" %c",c);
     }
 
@@ -31,7 +31,7 @@ void plot_diagram(Processus *processus)
     {
         puts("");
         l = strlen(processus[i].nom);
-        while (l++ <= 20 ) printf(" ");
+        while (l++ <= SPACE ) printf(" ");
 
         printf("%s |",processus[i].nom);
         for(j = 0 ; j < processus[i].temps_datt[0] + processus[i].date_arrivee ;  j++) printf(" ");
@@ -44,7 +44,7 @@ void plot_diagram(Processus *processus)
     {   
         l = 0;
         puts("");
-        while (l++ <= 20) printf(" ");
+        while (l++ <= SPACE) printf(" ");
         if (i == 2) printf("  ");
         else
         printf(" |");

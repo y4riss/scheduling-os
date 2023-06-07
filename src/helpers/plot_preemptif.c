@@ -11,7 +11,7 @@ void plot_diagram_preemptif(Processus *processus, int quantum)
     int condition;
 
 
-    printf("\n\n----------------------Diagram de Gantt----------------------\n\n");
+    printf("\n\n\t\t------Diagramme de Gantt------\n\n");
 
     //first vertical lines
     for(i = 0 ; i < 3 ; i++)
@@ -22,7 +22,7 @@ void plot_diagram_preemptif(Processus *processus, int quantum)
         if (i == 0) c = '^';
         else c = '|';
         puts("");
-        while (l++ <= 20) printf(" ");
+        while (l++ <= SPACE) printf(" ");
         printf(" %c",c);
     }
 
@@ -31,7 +31,7 @@ void plot_diagram_preemptif(Processus *processus, int quantum)
     {
         puts("");
         l = strlen(processus[i].nom);
-        while (l++ <= 20 ) printf(" ");
+        while (l++ <= SPACE ) printf(" ");
 
         printf("%s |",processus[i].nom);
 
@@ -45,7 +45,7 @@ void plot_diagram_preemptif(Processus *processus, int quantum)
             for(k = 0 ; k <  condition ; k++) printf(" ");
             cycle = min(quantum, processus[i].duree_cycle);
             processus[i].duree_cycle -= cycle;
-            for(k = 0 ; k < cycle ; k++) printf("_");
+            for(k = 0 ; k < cycle ; k++) printf("-");
 
         }
     }
@@ -55,11 +55,11 @@ void plot_diagram_preemptif(Processus *processus, int quantum)
     {   
         l = 0;
         puts("");
-        while (l++ <= 20) printf(" ");
+        while (l++ <= SPACE) printf(" ");
         if (i == 2) printf("  ");
         else
         printf(" |");
     }
-    for(k = 0 ; k < 60 ; k++) printf("-");
+    for(k = 0 ; k < 40 ; k++) printf("-");
     printf(">\n\n");
 }
