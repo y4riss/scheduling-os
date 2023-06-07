@@ -42,8 +42,8 @@ void print_table(Processus *processus, float avtemps_att, float avtemps_rot);
 
 void fcfs(Processus*);
 void round_robin(Processus *processus);
-void sjf(Processus*);
 void menu(algorithm_functions*);
+void sjf_choice(Processus *processus);
 void dump(Processus *p);
 
 

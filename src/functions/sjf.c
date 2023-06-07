@@ -44,3 +44,20 @@ void sjf(Processus* processus)
     print_table(processus, avtemps_att, avtemps_rot);
     plot_diagram(processus); 
 }
+
+void sjf_preemptif(Processus *processus)
+{
+    
+}
+
+void sjf_choice(Processus *processus)
+{
+    int choice;
+
+    printf("\t\t0 - non preemptif\n");
+    printf("\t\t1 - preemptif\n");
+    printf("Algorithm [sjf] > ");
+    scanf("%d",&choice);
+    if (choice == 0) sjf(processus);
+    else sjf_preemptif(processus);
+}

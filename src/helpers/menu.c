@@ -28,7 +28,7 @@ void menu(algorithm_functions* functions) {
                 break;
                 case 'r' : functions[i] = round_robin;
                 break;
-                case 's' : functions[i] = sjf;
+                case 's' : functions[i] = sjf_choice;
                 break;
                 default : functions[i] = fcfs;
             }

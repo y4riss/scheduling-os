@@ -20,7 +20,7 @@ void round_robin(Processus *processus)
     Processus tmp;
 
 
-    quantum = 4;
+    quantum = 3;
     avtemps_att = 0;
     avtemps_rot = 0;
     total_execution = 0;
