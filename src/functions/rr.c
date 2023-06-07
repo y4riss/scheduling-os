@@ -65,12 +65,10 @@ void round_robin(Processus *processus)
              p->duree_cycle = 0;
         }
 
-        printf("%s[%d] ",p->nom,total_execution);
         p->last_total_execution = total_execution;
         avtemps_att +=p->temps_datt[p->index];
         avtemps_rot +=p->rot[p->index];
 
-        printf("%s | rot = %d\n",p->nom, p->rot[p->index]);
         //determine the processes to queue
         for(i = 0 ; i < nb_processus ; i++)
         {

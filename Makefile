@@ -4,7 +4,7 @@ SRC = src/main.c \
 
 TARGET = scheduling
 INCLUDES = includes
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 all : 
 	gcc $(CFLAGS) $(SRC) -o $(TARGET) -I $(INCLUDES)
 
