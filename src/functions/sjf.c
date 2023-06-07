@@ -41,13 +41,13 @@ void sjf(Processus* processus)
     avtemps_att /= nb_processus;
     avtemps_rot /= nb_processus;
 
-    print_table(processus, avtemps_att, avtemps_rot);
     plot_diagram(processus); 
+    print_table(processus, avtemps_att, avtemps_rot);
 }
 
 void sjf_preemptif(Processus *processus)
 {
-    
+
 }
 
 void sjf_choice(Processus *processus)
