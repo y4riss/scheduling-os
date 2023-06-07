@@ -106,24 +106,20 @@ void round_robin(Processus *processus)
             p->duree_cycle = p->initial_duree_cycle;
     }
 
-    print_temps_datt(processus);
     plot(processus, quantum);
-}
 
-void print_temps_datt(Processus *processus)
-{
-    for(int i = 0 ; i < nb_processus;  i++)
+    for(i = 0 ; i < nb_processus ; i++)
     {
-        printf("%s : ",processus[i].nom);
-        for(int j = 0 ; j <= processus[i].index ; j++)
+        for(j = 1 ; j <= processus[i].index ; j++)
         {
-            printf("%d ",processus[i].temps_datt[j]);
+            processus[i].temps_datt[0] += processus[i].temps_datt[j];
+            processus[i].rot[0] += processus[i].rot[j];
         }
-            puts("");
-
     }
-
+    print_table(processus,avtemps_att/nb_processus, avtemps_rot/nb_processus);
 }
+
+
 
 void plot(Processus *processus, int quantum)
 {

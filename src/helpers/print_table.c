@@ -14,5 +14,6 @@ void print_table(Processus *processus, float avtemps_att, float avtemps_rot)
     puts("");
     for(i = 0; i < 30; i++) printf("--");
     printf("\nMoyenne\t\t|%0.2f\t\t\t |%0.2f\n", avtemps_att, avtemps_rot);
+    puts("\n");
     
 }
