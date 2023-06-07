@@ -33,6 +33,8 @@ Processus *parse_file(const char* filename) {
         processus[nb_processus].finished = 0;
         processus[nb_processus].index = 0;
         processus[nb_processus].last_total_execution = 0;
+        processus[nb_processus].queued = 0;
+        processus[nb_processus].nb = nb_processus;
 
 
         nb_processus++;
