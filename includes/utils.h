@@ -18,7 +18,6 @@ typedef struct {
     int temps_datt[256];
     int rot[256];
     int index; // to save temps datt and rotation index
-    int nb; // to save the index of process in the array
     int finished;
     int last_total_execution;
     int queued;
