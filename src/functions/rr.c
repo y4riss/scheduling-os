@@ -1,10 +1,14 @@
 #include "utils.h"
 
+
+void plot(Processus *processus, int quantum);
+
 void round_robin(Processus *processus)
 {
     int     i;
     int     j;
     int     k;
+    int     saved_index;
     int     cycle;
     int     quantum;
     int     total_execution;
@@ -15,7 +19,7 @@ void round_robin(Processus *processus)
     Processus tmp;
 
 
-    quantum = 3;
+    quantum = 1;
     avtemps_att = 0;
     avtemps_rot = 0;
     total_execution = 0;
@@ -27,18 +31,23 @@ void round_robin(Processus *processus)
     for( i = 0 ; i < nb_processus ; i++)
     {
         if (processus[i].date_arrivee < tmp.date_arrivee)
+        {
             tmp = processus[i];
+            k = i;
+        }
     }
     
     // queue the process into the queue
-    queue.processus[queue.tail++] = tmp;
-    tmp.queued = 1;
+    queue.processus[queue.tail++] = k;
+    p = &processus[k];
+    p->queued = 1;
     dump(processus);
     while (queue.tail != queue.front)
     {
 
-        // is the first item of the queue.
-        p = &queue.processus[queue.front];
+        // grab the first item from the queue
+        saved_index = queue.processus[queue.front];
+        p = &processus[saved_index];
         queue.front++;  // dequeue it
 
         //update its waiting , burst time , duree_cycle and quantum
@@ -48,19 +57,18 @@ void round_robin(Processus *processus)
             p->temps_datt[p->index] = total_execution - p->last_total_execution;   // calculate waiting time
         
         cycle = min(p->duree_cycle, quantum);
-        p->rot[tmp.index] =  p->temps_datt[p->index]+ cycle;  // burst time ( rotation )
-        processus[k].duree_cycle -= quantum;
+        total_execution += cycle;
+        p->rot[p->index] =  p->temps_datt[p->index]+ cycle;  // burst time ( rotation )
+        p->duree_cycle -= cycle;
         if (p->duree_cycle <= 0)
         {
              p->finished = 1;
              p->duree_cycle = 0;
         }
-        total_execution += p->duree_cycle;
-        printf("%s ",p->nom);
+
         p->last_total_execution = total_execution;
-        avtemps_att +=p->temps_datt[tmp.index];
-        avtemps_rot +=p->rot[tmp.index];
-        p->index++;
+        avtemps_att +=p->temps_datt[p->index];
+        avtemps_rot +=p->rot[p->index];
 
         //determine the processes to queue
         tmp.date_arrivee = 0x7fffffff;
@@ -79,14 +87,81 @@ void round_robin(Processus *processus)
             }
             if (processus[k].queued == 0)
             {
-                queue.processus[queue.tail++] = processus[k];
+                queue.processus[queue.tail++] = k;
                 processus[k].queued = 1;    
             }
         }
 
         //check if current process has finished , if not , queue it.
         if (p->finished == 0)
-                queue.processus[queue.tail++] = processus[k];
+        {
+            queue.processus[queue.tail++] = saved_index ;
+            p->index++;
+
+        }
+        else
+            p->duree_cycle = p->initial_duree_cycle;
     }
 
+    plot(processus, quantum);
+}
+
+void plot(Processus *processus, int quantum)
+{
+    int i;
+    int j;
+    int k;
+    int l;
+    int x;
+    int cycle;
+    int total_execution;
+
+    x = 0;
+    total_execution = 0;
+
+    printf("\n\n----------------------Diagram de Gantt----------------------\n\n");
+
+    //first vertical lines
+    for(i = 0 ; i < 3 ; i++)
+    {   
+        char c;
+        l = 0;
+
+        if (i == 0) c = '^';
+        else c = '|';
+        puts("");
+        while (l++ <= 20) printf(" ");
+        printf(" %c",c);
+    }
+
+
+    for(i = 0 ; i < nb_processus; i++)
+    {
+        puts("");
+        l = strlen(processus[i].nom);
+        while (l++ <= 20 ) printf(" ");
+
+        printf("%s |",processus[i].nom);
+        for(j = 0 ; j <= processus[i].index ; j++)
+        {
+            for(k = 0 ; k < processus[i].temps_datt[j] + processus[i].date_arrivee ; k++) printf(" ");
+            cycle = min(quantum, processus[i].duree_cycle);
+            processus[i].duree_cycle -= cycle;
+            total_execution += cycle;
+            for(k = 0 ; k < cycle ; k++) printf("-");
+
+        }
+    }
+
+    for(i = 0 ; i < 3 ; i++)
+    {   
+        l = 0;
+        puts("");
+        while (l++ <= 20) printf(" ");
+        if (i == 2) printf("  ");
+        else
+        printf(" |");
+    }
+    for(k = 0 ; k < 60 ; k++) printf("-");
+    printf(">\n\n");
 }

@@ -15,6 +15,7 @@ typedef struct {
     char nom[20];
     int date_arrivee;
     int duree_cycle;
+    int initial_duree_cycle;
     int temps_datt[256];
     int rot[256];
     int index; // to save temps datt and rotation index
@@ -28,7 +29,7 @@ typedef struct {
 
     int front;
     int tail;
-    Processus processus[256];
+    int processus[256]; // array representing the queue , it stores indexes of processes
 
 } ready_queue;
 

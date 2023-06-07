@@ -30,6 +30,7 @@ Processus *parse_file(const char* filename) {
 
         sscanf(ptr, "%s %d %d", p.nom, &p.date_arrivee, &p.duree_cycle);
         processus[nb_processus] = p;
+        processus[nb_processus].initial_duree_cycle = p.duree_cycle;
         processus[nb_processus].finished = 0;
         processus[nb_processus].index = 0;
         processus[nb_processus].last_total_execution = 0;
