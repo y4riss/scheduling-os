@@ -2,6 +2,7 @@
 
 
 void plot(Processus *processus, int quantum);
+void print_temps_datt(Processus *processus);
 
 void round_robin(Processus *processus)
 {
@@ -19,7 +20,7 @@ void round_robin(Processus *processus)
     Processus tmp;
 
 
-    quantum = 1;
+    quantum = 4;
     avtemps_att = 0;
     avtemps_rot = 0;
     total_execution = 0;
@@ -66,14 +67,16 @@ void round_robin(Processus *processus)
              p->duree_cycle = 0;
         }
 
+        printf("%s[%d] ",p->nom,total_execution);
         p->last_total_execution = total_execution;
         avtemps_att +=p->temps_datt[p->index];
         avtemps_rot +=p->rot[p->index];
 
+        printf("%s | rot = %d\n",p->nom, p->rot[p->index]);
         //determine the processes to queue
-        tmp.date_arrivee = 0x7fffffff;
         for(i = 0 ; i < nb_processus ; i++)
         {
+            tmp.date_arrivee = 0x7fffffff;
             for(j = 0 ; j < nb_processus ; j++)
             {
                 if (processus[j].queued == 0 && processus[j].date_arrivee <= total_execution) // if process is ready
@@ -103,7 +106,23 @@ void round_robin(Processus *processus)
             p->duree_cycle = p->initial_duree_cycle;
     }
 
+    print_temps_datt(processus);
     plot(processus, quantum);
+}
+
+void print_temps_datt(Processus *processus)
+{
+    for(int i = 0 ; i < nb_processus;  i++)
+    {
+        printf("%s : ",processus[i].nom);
+        for(int j = 0 ; j <= processus[i].index ; j++)
+        {
+            printf("%d ",processus[i].temps_datt[j]);
+        }
+            puts("");
+
+    }
+
 }
 
 void plot(Processus *processus, int quantum)
@@ -114,10 +133,9 @@ void plot(Processus *processus, int quantum)
     int l;
     int x;
     int cycle;
-    int total_execution;
+    int condition;
 
     x = 0;
-    total_execution = 0;
 
     printf("\n\n----------------------Diagram de Gantt----------------------\n\n");
 
@@ -142,17 +160,23 @@ void plot(Processus *processus, int quantum)
         while (l++ <= 20 ) printf(" ");
 
         printf("%s |",processus[i].nom);
-        for(j = 0 ; j <= processus[i].index ; j++)
+
+        cycle = 0;
+        for(j = 0 ; j <= processus[i].index ; j++) // loop through temps dattente
         {
-            for(k = 0 ; k < processus[i].temps_datt[j] + processus[i].date_arrivee ; k++) printf(" ");
+            if (j == 0)
+                condition = processus[i].temps_datt[j] + processus[i].date_arrivee;
+            else
+                condition = processus[i].temps_datt[j];
+            for(k = 0 ; k <  condition ; k++) printf(" ");
             cycle = min(quantum, processus[i].duree_cycle);
             processus[i].duree_cycle -= cycle;
-            total_execution += cycle;
-            for(k = 0 ; k < cycle ; k++) printf("-");
+            for(k = 0 ; k < cycle ; k++) printf("_");
 
         }
     }
 
+    // last vertical lines
     for(i = 0 ; i < 3 ; i++)
     {   
         l = 0;
