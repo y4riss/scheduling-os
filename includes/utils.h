@@ -38,6 +38,7 @@ void sort_by_date_arrivee(Processus *);
 typedef void (*algorithm_functions)(Processus*);
 
 void plot_diagram(Processus *processus);
+void plot_diagram_preemptif(Processus *processus, int quantum);
 void print_table(Processus *processus, float avtemps_att, float avtemps_rot);
 
 void fcfs(Processus*);
