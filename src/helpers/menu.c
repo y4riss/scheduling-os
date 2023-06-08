@@ -14,8 +14,8 @@ void menu(algorithm_functions* functions, int *nb_of_functions) {
         fprintf(stderr,"Cannot open directory '%s'\n", path);
         return;
     }
-
-    printf(" --------- MENU --------- \n");
+             
+    printf("\n########### MENU ########### \n\n");
     int i = 1;
     while ((pDirent = readdir(pDir)) != NULL) {
 

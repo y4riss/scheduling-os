@@ -11,7 +11,7 @@ void plot_diagram(Processus *processus)
 
     x = 0;
 
-    printf("\n\n\t\t------Diagramme de Gantt------\n\n");
+    printf("\n\n\t\t####### Diagramme de Gantt #######\n");
 
     //first vertical lines
     for(i = 0 ; i < 3 ; i++)

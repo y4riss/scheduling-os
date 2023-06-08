@@ -11,7 +11,7 @@ void get_user_input(algorithm_functions *functions, int n, Processus *processus)
         exit(1);
     }
     while (1) {
-    printf("Algorithm > ");
+    printf("\n\nAlgorithm > ");
     choice = getchar();
     if (choice == '\n' || choice == '\r') continue;
     while(getchar() != '\n'); // To consume the newline character
@@ -39,6 +39,7 @@ int main(int argc, char* argv[]) {
 
     while (1)
     {
+        printf("\033[2J\033[H");
         processus = parse_file(argv[1]);
         menu(functions,&nb_of_functions);
         get_user_input(functions, nb_of_functions, processus);

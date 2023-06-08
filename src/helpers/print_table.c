@@ -8,7 +8,8 @@ void print_table(Processus *processus, float avtemps_att, float avtemps_rot)
     float avg_rendement;
 
     avg_rendement = 0; 
-    printf("\n\n\t\t---------------------------\n\n");
+                    
+    printf("\n\n\t\t###################################\n\n");
 
     printf("\nProcessus \t|Temps d'attente \t |Temps de rotation \t |Rendement \n");
     for(i = 0; i < 40; i++) printf("--");
