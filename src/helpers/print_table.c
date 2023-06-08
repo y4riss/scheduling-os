@@ -17,9 +17,7 @@ void print_table(Processus *processus, float avtemps_att, float avtemps_rot)
     {
         rendement = ((float)(processus[i].rot[0] - processus[i].temps_datt[0]) / (float)processus[i].rot[0]);
         avg_rendement += rendement;
-        printf("\n%s\t\t\t|%d\t\t\t |%d\t\t\t |%.2f",processus[i].nom, processus[i].temps_datt[0], processus[i].rot[0], rendement);
-
-
+        printf("\n%s\t\t|%d\t\t\t |%d\t\t\t |%.2f",processus[i].nom, processus[i].temps_datt[0], processus[i].rot[0], rendement);
     }
     avg_rendement /= nb_processus;
     puts("");
