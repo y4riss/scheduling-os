@@ -1,4 +1,5 @@
 #include "utils.h"
+    int i=0;
 
 void get_user_input(algorithm_functions *functions, int n, Processus *processus)
 {
@@ -34,10 +35,29 @@ int main(int argc, char* argv[]) {
     algorithm_functions functions[10];
     Processus* processus;
 
-    processus = parse_file(argv[1]);
-    menu(functions,&nb_of_functions);
-    get_user_input(functions, nb_of_functions, processus);
+    while (1)
+    {
+        processus = parse_file(argv[1]);
+        
+        menu(functions,&nb_of_functions);
+        get_user_input(functions, nb_of_functions, processus);
     
-    free(processus);
+        getchar();
+        int decision;
+        printf("Vous voulez afficher le menu\n");
+        printf("\t1 - Oui\n\t2 - Quitter\n");
+        printf("Votre choix > ");
+        scanf("%d",&decision);
+        if (decision==1)
+        {
+            continue;
+        }
+        else{
+            break;
+        }
+        
+        free(processus);
+    }
+    
     return 0;
 }

@@ -133,7 +133,14 @@ void round_robin(Processus *processus)
             processus[i].rot[0] += processus[i].rot[j];
         }
     }
+    
+    for (i = 0; i < nb_processus; i++)
+    {
+        processus[i].rendement = (float)(processus[i].initial_duree_cycle)/(float)(processus[i].rot[0]);
+    }
+    
     print_table(processus,avtemps_att/nb_processus, avtemps_rot/nb_processus);
+
 }
 
 

@@ -37,10 +37,18 @@ void fcfs(Processus* processus)
 
         total_execution += processus[k].duree_cycle;
     }
+    
     avtemps_att /= nb_processus;
     avtemps_rot /= nb_processus;
+
+    for (i = 0; i < nb_processus; i++)
+    {
+        processus[i].rendement = (float)(processus[i].duree_cycle)/(float)(processus[i].rot[0]);
+    }
+    
 
     printf("Algorithme[FCFS] : First come first serve.\n");
     plot_diagram(processus); 
     print_table(processus, avtemps_att, avtemps_rot);
+    
 }

@@ -15,7 +15,7 @@ void menu(algorithm_functions* functions, int *nb_of_functions) {
         return;
     }
 
-    
+    printf(" --------- MENU --------- \n");
     int i = 1;
     while ((pDirent = readdir(pDir)) != NULL) {
 
