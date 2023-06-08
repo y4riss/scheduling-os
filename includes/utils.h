@@ -23,7 +23,6 @@ typedef struct {
     int finished;
     int last_total_execution;
     int queued;
-    float rendement;
 
 } Processus;
 

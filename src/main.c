@@ -21,7 +21,7 @@ void get_user_input(algorithm_functions *functions, int n, Processus *processus)
     else
         printf("Invalid input.\n");
     }
-    functions[choice - 48](processus);
+    functions[choice - 48](processus); // execute algorithm
 }
 
 
@@ -32,31 +32,25 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     int nb_of_functions;
+    int choix;
+
     algorithm_functions functions[10];
     Processus* processus;
 
     while (1)
     {
         processus = parse_file(argv[1]);
-        
         menu(functions,&nb_of_functions);
         get_user_input(functions, nb_of_functions, processus);
-    
-        getchar();
-        int decision;
-        printf("Vous voulez afficher le menu\n");
-        printf("\t1 - Oui\n\t2 - Quitter\n");
-        printf("Votre choix > ");
-        scanf("%d",&decision);
-        if (decision==1)
-        {
-            continue;
-        }
-        else{
-            break;
-        }
-        
         free(processus);
+        
+        printf("Vous voulez afficher le menu ?\n");
+        printf("\t1 - Afficher menu\n\t2 - Quitter\n");
+        printf("Votre choix > ");
+        scanf("%d",&choix);
+        while(getchar() != '\n'); 
+        if (choix != 1)
+            break;        
     }
     
     return 0;
