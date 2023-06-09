@@ -12,14 +12,13 @@ RM			:= rm -rf
 
 .PHONY: all clean fclean re
 
-all: $(NAME)
+all: $(NAME) clean
 
 
 
-$(NAME): $(OBJS) 
+$(NAME):  $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(NAME) created."
-	@$(RM) $(OBJS)
 
 
 %.o: %.c
