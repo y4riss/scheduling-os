@@ -1,6 +1,6 @@
 #include "utils.h"
 
-
+int nb_processus;
 
 Processus *parse_file(const char* filename) {
 

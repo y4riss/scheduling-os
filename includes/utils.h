@@ -5,11 +5,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <dirent.h>
+#include <unistd.h>
+
 
 #define MAX_QUANTUM 20
 #define min(a,b) (a<b?a:b)
 #define SPACE 14
-int nb_processus;
+extern int nb_processus;
 
 typedef struct {
 
