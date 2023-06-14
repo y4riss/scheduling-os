@@ -2,6 +2,7 @@
 
 
 
+
 void sjf(Processus* processus)
 {
     
@@ -16,8 +17,8 @@ void sjf(Processus* processus)
 
     avtemps_att = 0;
     avtemps_rot = 0;
-    total_execution = 0;
-
+    total_execution = get_total_execution(processus);
+    printf("total : %d\n",total_execution);
     for(i =0 ; i < nb_processus; i++)
     {
         p.date_arrivee = 0x7ffffff;
@@ -68,7 +69,6 @@ void sjf_preemptif(Processus *processus)
     quantum = 1;
     avtemps_att = 0;
     avtemps_rot = 0;
-    total_execution = 0;
     queue.front = 0;
     queue.tail = 0;
 
@@ -89,6 +89,8 @@ void sjf_preemptif(Processus *processus)
         }
     }
     
+    total_execution = processus[k].date_arrivee;
+
     // queue the process into the queue
     queue.processus[queue.tail++] = k;
     p = &processus[k];

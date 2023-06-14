@@ -2,6 +2,8 @@
 
 
 
+
+
 void fcfs(Processus* processus)
 {
 
@@ -16,7 +18,7 @@ void fcfs(Processus* processus)
 
     avtemps_att = 0;
     avtemps_rot = 0;
-    total_execution = 0;
+    total_execution = get_total_execution(processus);
 
     for(i =0 ; i < nb_processus; i++)
     {

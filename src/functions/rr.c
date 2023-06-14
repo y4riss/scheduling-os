@@ -40,7 +40,6 @@ void round_robin(Processus *processus)
 
     avtemps_att = 0;
     avtemps_rot = 0;
-    total_execution = 0;
     queue.front = 0;
     queue.tail = 0;
 
@@ -57,6 +56,9 @@ void round_robin(Processus *processus)
             k = i;
         }
     }
+
+    total_execution = processus[k].date_arrivee;
+
     
     // queue the process into the queue
     queue.processus[queue.tail++] = k;

@@ -42,6 +42,7 @@ typedef void (*algorithm_functions)(Processus*);
 void plot_diagram(Processus *processus);
 void plot_diagram_preemptif(Processus *processus, int quantum);
 void print_table(Processus *processus, float avtemps_att, float avtemps_rot);
+int get_total_execution(Processus *processus);
 
 void fcfs(Processus*);
 void round_robin(Processus *processus);
