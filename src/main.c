@@ -1,5 +1,4 @@
 #include "utils.h"
-    int i=0;
 
 void get_user_input(algorithm_functions *functions, int n, Processus *processus)
 {

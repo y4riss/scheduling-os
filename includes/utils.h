@@ -37,7 +37,6 @@ typedef struct {
 } ready_queue;
 
 Processus *parse_file(const char* filename);
-void sort_by_date_arrivee(Processus *);
 typedef void (*algorithm_functions)(Processus*);
 
 void plot_diagram(Processus *processus);
@@ -48,7 +47,6 @@ void fcfs(Processus*);
 void round_robin(Processus *processus);
 void menu(algorithm_functions*, int *nb_of_functions);
 void sjf_choice(Processus *processus);
-void dump(Processus *p);
 
 
 
