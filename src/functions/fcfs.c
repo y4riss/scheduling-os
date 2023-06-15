@@ -32,8 +32,8 @@ void fcfs(Processus* processus)
             }
         }
         processus[k].finished = 1; // marke it as finished
-        processus[k].temps_datt[0] = total_execution -  processus[k].date_arrivee;    // calculate waiting time
-        processus[k].rot[0] = (total_execution - processus[k].date_arrivee) + processus[k].duree_cycle ;  // burst time ( rotation )
+        processus[k].temps_datt[0] = max(total_execution -  processus[k].date_arrivee, 0);    // calculate waiting time
+        processus[k].rot[0] =  processus[k].temps_datt[0]  + processus[k].duree_cycle ;  // burst time ( rotation )
         avtemps_att += processus[k].temps_datt[0];
         avtemps_rot += processus[k].rot[0];
 

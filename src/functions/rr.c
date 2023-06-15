@@ -74,7 +74,7 @@ void round_robin(Processus *processus)
 
         //update its waiting , burst time , duree_cycle and quantum
         if (p->index == 0)
-            p->temps_datt[0] = total_execution -  p->date_arrivee; 
+            p->temps_datt[0] = max(total_execution -  p->date_arrivee, 0); 
         else
             p->temps_datt[p->index] = total_execution - p->last_total_execution;   // calculate waiting time
         

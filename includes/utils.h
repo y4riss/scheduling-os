@@ -10,6 +10,8 @@
 
 #define MAX_QUANTUM 20
 #define min(a,b) (a<b?a:b)
+#define max(a,b) (a>b?a:b)
+
 #define SPACE 14
 extern int nb_processus;
 
